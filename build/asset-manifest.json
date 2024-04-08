@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/neon_snake/static/css/main.b8dfaf51.css",
+    "main.js": "/neon_snake/static/js/main.52799fca.js",
+    "static/js/453.ed3810f9.chunk.js": "/neon_snake/static/js/453.ed3810f9.chunk.js",
+    "static/media/neon_wallpaper.gif": "/neon_snake/static/media/neon_wallpaper.dce4397a5fb6757ed87f.gif",
+    "index.html": "/neon_snake/index.html",
+    "main.b8dfaf51.css.map": "/neon_snake/static/css/main.b8dfaf51.css.map",
+    "main.52799fca.js.map": "/neon_snake/static/js/main.52799fca.js.map",
+    "453.ed3810f9.chunk.js.map": "/neon_snake/static/js/453.ed3810f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b8dfaf51.css",
+    "static/js/main.52799fca.js"
+  ]
+}
