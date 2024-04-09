@@ -9,25 +9,26 @@ const SnakeGame = () => {
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
   const [isGameStarted, setIsGameStarted] = useState(false);
+  const [timer, setTimer] = useState(0);
 
   useEffect(() => {
     const handleKeyPress = (event) => {
       if (!gameOver) {
         switch (event.key) {
           case 'ArrowUp':
-            setDirection('up');
+            if (direction !== 'down') setDirection('up');
             setIsGameStarted(true);
             break;
           case 'ArrowDown':
-            setDirection('down');
+            if (direction !== 'up') setDirection('down');
             setIsGameStarted(true);
             break;
           case 'ArrowLeft':
-            setDirection('left');
+            if (direction !== 'right') setDirection('left');
             setIsGameStarted(true);
             break;
           case 'ArrowRight':
-            setDirection('right');
+            if (direction !== 'left') setDirection('right');
             setIsGameStarted(true);
             break;
           default:
@@ -40,18 +41,19 @@ const SnakeGame = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, [gameOver]);
+  }, [gameOver, direction]);
 
   useEffect(() => {
     if (isGameStarted) {
       const interval = setInterval(() => {
         if (!gameOver) {
           updateSnake();
+          setTimer(timer + 0.1);
         }
       }, 100 / (1 + score * 0.1));
       return () => clearInterval(interval);
     }
-  }, [snake, food, direction, gameOver, isGameStarted, score]);
+  }, [snake, food, direction, gameOver, isGameStarted, score, timer]);
 
   const updateSnake = () => {
     const newSnake = [...snake];
@@ -93,7 +95,7 @@ const SnakeGame = () => {
       head[0] >= 20 ||
       head[1] < 0 ||
       head[1] >= 20 ||
-      (newSnake.length > 1 && newSnake[1][0] === head[0] && newSnake[1][1] === head[1])
+      (newSnake.length > 1 && newSnake.slice(1).some((segment) => segment[0] === head[0] && segment[1] === head[1]))
     ) {
       setGameOver(true);
       setIsGameStarted(false);
@@ -110,8 +112,9 @@ const SnakeGame = () => {
     setGameOver(false);
     setScore(0);
     setIsGameStarted(false);
+    setTimer(0);
   };
-  
+
   return (
     <div
       style={{
@@ -137,7 +140,15 @@ const SnakeGame = () => {
       >
         Neon Snake
       </h1>
-      <p style={{ fontSize: '2rem', marginBottom: '2rem' }}>Score: {score}</p>
+      <p
+        style={{
+          fontSize: '2rem',
+          marginBottom: '2rem',
+          fontFamily: 'Orbitron, sans-serif',
+        }}
+      >
+        Score: {score} | Time: {timer.toFixed(1)}s
+      </p>
       {gameOver ? (
         <div style={{ textAlign: 'center' }}>
           <button
@@ -151,6 +162,7 @@ const SnakeGame = () => {
               cursor: 'pointer',
               borderRadius: '5px',
               boxShadow: '0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080',
+              fontFamily: 'Orbitron, sans-serif',
             }}
           >
             Start New Game
