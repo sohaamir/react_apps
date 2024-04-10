@@ -3,7 +3,7 @@
 <div align="center">
   <img src="https://github.com/sohaamir/neon_snake/blob/gh-pages/game.gif" width="70%">
 </div>
-<be>
+<br>
 
 Detailed instructions on how to set up the React app and it's deployment to GitHub Pages are found [here:](https://github.com/gitname/react-gh-pages)
 
