@@ -1,6 +1,6 @@
 # Creating a React app snake game and deploying it to GitHub Pages
 
-This is the repository for a simple snake game I created in [React](https://react.dev/), hosted online using [GitHub Pages](https://pages.github.com/).
+This is the repository for a simple snake game created in [React](https://react.dev/) and hosted online using [GitHub Pages](https://pages.github.com/).
 
 <div align="center">
   <img src="https://github.com/sohaamir/neon_snake/blob/gh-pages/game.gif" width="70%">
@@ -14,9 +14,9 @@ Detailed instructions on:
 - initializing the repository using `git`
 - and deploying the app to GitHub Pages
 
-are found [here:](https://github.com/gitname/react-gh-pages)
+can be found [here:](https://github.com/gitname/react-gh-pages)
 
-This README contains instructions on how to make changes to the game and re-deploy the app to GitHub Pages.
+This README contains instructions on making changes to the game, and then re-deploying the app to GitHub Pages.
 
 ## Instructions on making and deploying changes to the game 
 
@@ -36,7 +36,7 @@ This README contains instructions on how to make changes to the game and re-depl
    npm install
    npm start
    ```
-
+   
 3. Make relevant changes to the app.
 
 4. Deploy these changes to `gh-pages`.
