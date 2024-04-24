@@ -99,6 +99,6 @@ Score 4 to 5:
 
 This purposely makes the game exponentially more difficult! 
 
-My high score is 19 (as of April 15 2024).
+My high score is ~~19~~ 21.
 
 Credit to [Pixel Jeff](https://www.behance.net/pixeljeff) for the amazing wallpaper!
