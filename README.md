@@ -47,58 +47,6 @@ This README contains instructions on making changes to the game, and then re-dep
    npm run deploy -- -m "Deploy React app to GitHub Pages"
    ```
    
-## The game (How it works)
-
-The snake game is rather simple, and isn't too dissimilar from a regular snake game. The only major difference (apart from the slick neon theme) is the speed increase when the player gets a point. 
-
-```javascript
-useEffect(() => {
-  if (isGameStarted) {
-    const interval = setInterval(() => {
-      if (!gameOver) {
-        updateSnake();
-        setTimer(timer + 0.1);
-      }
-    }, 100 / (1 + score * 0.1)); // Speed calculation
-    return () => clearInterval(interval);
-  }
-}, [snake, food, direction, gameOver, isGameStarted, score, timer]);
-```
-
-This increase is relative to the score. For example, the percentage increase from 0-5 points is calcuated as:
-
-Score 0 to 1:
-<br>
-<p align="center">
-  $Percentage Increase=\left(\frac{\left(100-91\right)}{100}\right)\times 100=\left(\frac{9}{100}\right)\times 100=9%$
-</p>
-
-Score 1 to 2: 
-<br>
-<p align="center">
-  $Percentage Increase=\left(\frac{\left(91-83.33\right)}{91}\right)\times 100=\left(\frac{7.67}{91}\right)\times 100\approx 8.43%$
-</p>
-
-Score 2 to 3: 
-<br>
-<p align="center">
-  $Percentage Increase=\left(\frac{\left(83.33-76.92\right)}{83.33}\right)\times 100=\left(\frac{6.41}{83.33}\right)\times 100\approx 7.69%$
-</p>
-
-Score 3 to 4: 
-<br>
-<p align="center">
-  $Percentage Increase=\left(\frac{\left(76.92-71.43\right)}{76.92}\right)\times 100=\left(\frac{5.49}{76.92}\right)\times 100\approx 7.14%$
-</p>
-
-Score 4 to 5: 
-<br>
-<p align="center">
-  $Percentage Increase=\left(\frac{\left(71.43-66.67\right)}{71.43}\right)\times 100=\left(\frac{4.76}{71.43}\right)\times 100\approx 6.67%$
-</p>
-
-This purposely makes the game exponentially more difficult! 
-
 My high score is ~~19~~ 21.
 
 Credit to [Pixel Jeff](https://www.behance.net/pixeljeff) for the amazing wallpaper!
